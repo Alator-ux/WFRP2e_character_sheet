@@ -55,7 +55,7 @@ class SkillsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CSCard(
-      label: 'Talents',
+      label: 'Skills',
       addSpacesBetweenChilds: false,
       children: [
         const SkillsCardRow(

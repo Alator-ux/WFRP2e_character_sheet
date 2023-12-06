@@ -12,8 +12,8 @@ class CharacterCard extends StatelessWidget {
       label: 'Character',
       children: [
         CardTextField(label: 'Name:'),
-        // CardTextField(label: 'Race:'),
-        // MultilineCardTextField(3, label: 'Career Path:'),
+        CardTextField(label: 'Race:'),
+        MultilineCardTextField(3, label: 'Career Path:'),
       ],
     );
   }

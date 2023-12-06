@@ -27,6 +27,7 @@ class SkillsCardSkillRow extends StatelessWidget {
           textAlign: TextAlign.center,
           borderStyle: TextFieldBorderStyle.box,
           initValue: '0',
+          verticalContentPadding: 4.0,
           inputFormatters: [
             FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
           ],

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_to_pdf/args/text_style.dart';
 import 'package:test_web/utils/text_style_storage.dart';
-import 'package:pdf/widgets.dart' as pw;
 
 class CSCard extends StatelessWidget {
   final String label;

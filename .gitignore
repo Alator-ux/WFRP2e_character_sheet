@@ -27,6 +27,17 @@
 .pub/
 /build/
 
+# Flutter Web related
+node_modules/
+# .firebase/
+#         .firebaserc
+#         firebase.json
+#         node_modules/
+#         package-lock.json
+#         package.json
+#         public/
+
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle

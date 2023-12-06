@@ -28,19 +28,19 @@ class Sheet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   CharacterCard(),
-                  // DetailsCard(),
-                  // TalentsCard(),
+                  DetailsCard(),
+                  TalentsCard(),
                 ],
               ),
             ),
-            // Expanded(
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: [
-            //       SkillsCard(),
-            //     ],
-            //   ),
-            // ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SkillsCard(),
+                ],
+              ),
+            ),
           ],
         ),
       ),

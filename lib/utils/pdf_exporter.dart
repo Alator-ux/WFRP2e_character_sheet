@@ -1,6 +1,8 @@
+import 'package:flutter_to_pdf/flutter_to_pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'dart:typed_data';
-
+import 'dart:html' as html;
+import 'package:universal_io/io.dart' as io;
 
 class PDFExporter {
   static PDFExporter? _instance;
@@ -41,21 +43,3 @@ class PDFExporter {
     html.Url.revokeObjectUrl(url);
   }
 }
-
-// class PDFExporter {
-//   static PDFExporter? _instance;
-
-//   final ExportDelegate exportDelegate;
-//   String rooID = '';
-
-//   PDFExporter(ExportOptions options)
-//       : exportDelegate = ExportDelegate(options: options);
-
-//   static PDFExporter instance() {
-//     _instance ??= PDFExporter(
-//       const ExportOptions(
-//         pageFormatOptions: PageFormatOptions.a4(),
-//       ),
-//     );
-//     return _instance!;
-//   }

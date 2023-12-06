@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:test_web/utils/id_generator.dart';
 import 'package:test_web/utils/text_style_storage.dart';
 import 'package:test_web/utils/text_width_meter.dart';
 
@@ -15,6 +14,7 @@ class CardTextField extends StatefulWidget {
   final String initValue;
   final List<TextInputFormatter> inputFormatters;
   final double height;
+  final double verticalContentPadding;
   // final String id = IDGenerator.genID();
   const CardTextField({
     super.key,
@@ -26,6 +26,7 @@ class CardTextField extends StatefulWidget {
     this.focusNode,
     this.textEditingController,
     this.height = 20,
+    this.verticalContentPadding = 8.0,
   });
 
   @override
@@ -36,7 +37,6 @@ class _CardTextFieldState extends State<CardTextField> {
   TextEditingController textEditingController = TextEditingController();
   double textFieldWidth = 0;
   String oldText = '';
-  final Key ttkey = Key('qwe123124');
   @override
   void initState() {
     super.initState();
@@ -44,7 +44,7 @@ class _CardTextFieldState extends State<CardTextField> {
     if (widget.textEditingController != null) {
       textEditingController = widget.textEditingController!;
     }
-    textEditingController.text = 'qwe123'; //widget.initValue;
+    textEditingController.text = widget.initValue;
     textEditingController.addListener(() {
       if (oldText.length == textEditingController.text.length) {
         return;
@@ -88,7 +88,6 @@ class _CardTextFieldState extends State<CardTextField> {
         borderRadius: BorderRadius.zero,
       );
     }
-    debugPrint('TFL = $ttkey');
 
     return SizedBox(
       height: widget.height,
@@ -101,7 +100,6 @@ class _CardTextFieldState extends State<CardTextField> {
                 builder: (BuildContext context, BoxConstraints constraints) {
               textFieldWidth = constraints.maxWidth;
               return TextField(
-                key: const Key('qweqrwqwerqw'),
                 textAlign: widget.textAlign,
                 textAlignVertical: TextAlignVertical.center,
                 focusNode: widget.focusNode,
@@ -109,7 +107,7 @@ class _CardTextFieldState extends State<CardTextField> {
                 inputFormatters: widget.inputFormatters,
                 style: TextStyleStorage.bodyMedium,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
+                  contentPadding: EdgeInsets.symmetric(vertical: widget.verticalContentPadding),
                   isDense: true,
                   focusedBorder: borderStyle,
                   enabledBorder: borderStyle,

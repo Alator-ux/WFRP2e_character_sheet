@@ -2,25 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:test_web/utils/pdf_exporter.dart';
 
 class DownloadButton extends StatefulWidget {
-  const DownloadButton({super.key});
+  final VoidCallback onPressed;
+  const DownloadButton({super.key, required this.onPressed});
 
   @override
   State<DownloadButton> createState() => _DownloadButtonState();
 }
 
 class _DownloadButtonState extends State<DownloadButton> {
-  bool blocked = false;
+  late VoidCallback onPressed;
+  bool centerAlignment = false;
+  @override
+  void initState() {
+    super.initState();
+    onPressed = () {
+      centerAlignment = !centerAlignment;
+      widget.onPressed();
+    };
+  }
+
+  // bool blocked = false;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: blocked
-            ? null
-            : () {
-                blocked = true;
-                PDFExporter.instance().exportToPDF().then((value) {
-                  blocked = false;
-                });
-              },
-        child: const Text('To PDF'));
+        onPressed: onPressed,
+        // onPressed: blocked
+        //     ? null
+        //     : () {
+        //         blocked = true;
+        //         PDFExporter.instance().exportToPDF().then((value) {
+        //           blocked = false;
+        //         });
+        //       },
+        child: centerAlignment
+            ? const Text('Center alignment')
+            : const Text('PDF alignment'));
   }
 }
